@@ -17,4 +17,13 @@ jobs:
   show-event:
     runs-on: ubuntu-20.04
     steps:
-      - run: echo "Testing url ${{ github.event.inputs.deployPrimeUrl }}"
+      - name: Echo inputs
+        run: echo "Testing url ${{ github.event.inputs.deployPrimeUrl }}"
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          install: false
+          browser: chrome
+          headless: true
+          command: npx cypress run --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
