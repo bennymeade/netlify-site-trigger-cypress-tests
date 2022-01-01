@@ -20,6 +20,9 @@ jobs:
       - name: Echo inputs
         run: echo "Testing url ${{ github.event.inputs.deployPrimeUrl }}"
 
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
