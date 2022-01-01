@@ -2,13 +2,14 @@
   publish = "dist"
   command = "yarn generate"
 
-# https://github.com/bahmutov/netlify-plugin-github-dispatch
 [[plugins]]
+  # https://github.com/bahmutov/netlify-plugin-github-dispatch
   package = "netlify-plugin-github-dispatch"
   [plugins.inputs]
     owner = "bennymeade" # use the target organization name
     repo = "netlify-site-with-cypress-tests" # use the target repo name
     workflow = ".github/workflows/e2e.yml" # use workflow relative path
 
+[[plugins]]
   # runs Cypress tests against the deployed URL
   package = "netlify-plugin-cypress"
