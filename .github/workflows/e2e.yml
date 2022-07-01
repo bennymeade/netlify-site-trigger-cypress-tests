@@ -23,10 +23,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Install packages
+        run: yarn install
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
           install: false
           browser: chrome
           headless: true
-          command: npx cypress run --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
+          # command: npx cypress run --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
+          command: yarn cypress run --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
