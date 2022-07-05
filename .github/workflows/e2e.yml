@@ -29,5 +29,4 @@ jobs:
           install: false
           browser: chrome
           headless: true
-          command: npx cypress run --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
-          # command: yarn cypress run --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
+          command: npx --package cypress@9.7.0 cypress run
